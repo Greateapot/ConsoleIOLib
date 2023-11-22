@@ -1,7 +1,6 @@
 namespace ConsoleIOTests;
 
-[CollectionDefinition("DNRIP", DisableParallelization = true)]
-public class UnitTests
+public class ConsoleIOTest
 {
     [Fact]
     public void TestInputInt()
