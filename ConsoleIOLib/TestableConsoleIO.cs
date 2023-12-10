@@ -1,5 +1,3 @@
-using System.Text.RegularExpressions;
-
 namespace ConsoleIOLib
 {
     public class TestableConsoleIO : IConsoleIO
@@ -11,16 +9,6 @@ namespace ConsoleIOLib
         public string? Output { get; private set; }
 
         public delegate void Callback(string? output);
-
-        public static string MatchOutput(string source, string prefix = "", string suffix = "")
-        {
-            // Можно сократить в одну строку, но дебажить становиться сложно. Оставь как есть
-            var regex = new Regex($"{prefix}(.*?){suffix}", RegexOptions.Singleline | RegexOptions.Multiline);
-            var match = regex.Match(source);
-            var group = match.Groups[1];
-            var value = group.Value;
-            return value;
-        }
 
         public void PushKey(params ConsoleKey[] keys)
         {
